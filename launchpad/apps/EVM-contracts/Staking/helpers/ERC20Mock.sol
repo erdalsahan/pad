@@ -10,7 +10,7 @@ contract Staking is GlobalsAndUtility {
     using SafeERC20 for IERC20Burnable;
 
     constructor(
-        IERC20Burnable _stakingToken, // MUST BE BURNABLE ?
+        IERC20Burnable _stakingToken, // MUST BE BURNABLE
         uint40 _launchTime,
         address _originAddr
     )
