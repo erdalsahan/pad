@@ -8,14 +8,25 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 contract APSale is AccessControl {
     bytes32 public constant WHITE_LIST_ROLE = keccak256(abi.encodePacked("WHITE_LIST_ROLE"));
+    bytes32 public constant ADMIN_ROLE = keccak256(abi.encodePacked("ADMIN_ROLE"));
+    bytes32 public constant REFUND_ROLE = keccak256(abi.encodePacked("REFUND_ROLE"));
 
     IERC20 public apToken;
     /*
     @dev
+
+    Token kontrat adresi belirleme: APtoken kontratımızın adresini, APSale kontratının constructor'ına _apToken parametresine atamamız gerekiyor.
+    Token konrartımızın desteklediği işlemleri kontrol etme: APtoken kontratının transferFrom ve approve fonksiyonlarını desteklediğinden emin olmamız gerekiyor.
+    APSale kontratını derleyip yayınlamamız gerekiyor: APtoken kontratının adresini APSale kontratına ekledikten sonra, kontratı deploy etmemiz gerekiyor ve Ethereum'da yayınlamalıyız.
+
+    @dev
+    @param
+
     apToken adında satılacak tokenin adresini, her satış türü için fiyat,
     minimum ve maksimum satın alma miktarları,
     ve satış başlangıç ve bitiş zamanları gibi parametrelerle oluşturulur.
-    @dev
+
+    @param
     */
     uint256 public pricePrivatesale;
     uint256 public pricePublicsale;
@@ -57,6 +68,8 @@ contract APSale is AccessControl {
         yönetimsel işlemleri gerçekleştirme yetkisi verir.
         @param
         */
+        _setupRole(ADMIN_ROLE, msg.sender);
+        _setupRole(REFUND_ROLE, msg.sender);
     }
 
     function addToWhitelist(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
@@ -80,7 +93,30 @@ contract APSale is AccessControl {
         */
     }
 
-    // Satın alma işlemini güvenli hale getirmek için SafeERC20
+    function setSaleParameters(
+            uint256 _pricePrivatesale,
+            uint256 _pricePublicsale,
+            uint256 _minimumBuyPrivatesale,
+            uint256 _maximumBuyPrivatesale,
+            uint256 _startTimePrivatesale,
+            uint256 _endTimePrivatesale,
+            uint256 _startTimePublicsale,
+            uint256 _endTimePublicsale)
+
+    public onlyRole(ADMIN_ROLE) {
+            pricePrivatesale = _pricePrivatesale;
+            pricePublicsale = _pricePublicsale;
+            minimumBuyPrivatesale = _minimumBuyPrivatesale;
+            maximumBuyPrivatesale = _maximumBuyPrivatesale;
+            startTimePrivatesale = _startTimePrivatesale;
+            endTimePrivatesale = _endTimePrivatesale;
+            startTimePublicsale = _startTimePublicsale;
+            endTimePublicsale = _endTimePublicsale;
+        }
+
+
+
+
     function buyPrivatesale(uint256 amount) public {
         /*
         @Privatesale:
