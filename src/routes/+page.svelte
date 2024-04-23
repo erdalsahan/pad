@@ -148,4 +148,13 @@
 			}
 		}
 	}
+
+	#features {
+		div {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			column-gap: 1rem;
+		}
+	}
 </style>
