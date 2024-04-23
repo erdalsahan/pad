@@ -1,6 +1,6 @@
 <script>
-	import ImageButton from '../lib/ImageButton.svelte';
-	import TextButton from '../lib/TextButton.svelte';
+	import ImageButton from '../lib/components/ImageButton.svelte';
+	import TextButton from '../lib/components/TextButton.svelte';
 	import StatisticWidget from '../lib/components/StatisticWidget.svelte';
 </script>
 <section id="hero">
@@ -30,6 +30,19 @@
 			src="atlas.png"
 		/>
 	</div>
+</section>
+<section id="get-listed">
+	<h1>Get listed on Atlaspad</h1>
+	<p>
+		Ready to change the world? Ready for lift-off? Contact us now to get your project listed on
+		Atlaspad. Atlaspad provides an easy entry to a large ecosystem of multiple chains.
+	</p>
+	<p>
+		Atlaspad Launchpad utilizes Mina Protocol’s zkApps to achieve a fast and efficient platform
+		while innovating usual security approaches. Our launchpad has zero-knowledge at its core, so
+		anyone can develop or participate in ultimate privacy.
+	</p>
+	<ImageButton imgSource="app.svg" text="I'm ready, let's do this!" />
 </section>
 <style lang="scss">
 	section {
