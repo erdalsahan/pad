@@ -2,6 +2,7 @@
 	import ImageButton from '../lib/components/ImageButton.svelte';
 	import TextButton from '../lib/components/TextButton.svelte';
 	import StatisticWidget from '../lib/components/StatisticWidget.svelte';
+	import InvisibleCard from '../lib/components/InvisibleCard.svelte';
 </script>
 <section id="hero">
 	<div class="content">
@@ -31,6 +32,32 @@
 		/>
 	</div>
 </section>
+<section id="features">
+	<h1>Features</h1>
+	<p>
+		What differs Atlaspad’s launchpad from its’ competitors is the powerful features to build and
+		back-up a massive community.
+	</p>
+	<p>Participate, stake and earn or build and innovate with Atlaspad.</p>
+
+	<div>
+		<InvisibleCard title="Trust Issue Resolution" imgSource="home/tir.png">
+			Atlaspad’s launchpad offers a 100% secure and risk-free structure for investing in any ICO
+			project.
+		</InvisibleCard>
+
+		<InvisibleCard title="Analytics & Reports" imgSource="home/aar.png">
+			Atlaspad ensures that users receive reliable and up-to-date information for their
+			transactions.
+		</InvisibleCard>
+
+		<InvisibleCard title="Cross-chain Transactions" imgSource="home/cct.png">
+			Atlaspad supports multiple blockchains, so users can seamlessly engage in cross-chain
+			transactions, enabling diversification and broader participation in the crypto space.
+		</InvisibleCard>
+	</div>
+</section>
+
 <section id="get-listed">
 	<h1>Get listed on Atlaspad</h1>
 	<p>
