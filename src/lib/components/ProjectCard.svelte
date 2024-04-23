@@ -80,7 +80,7 @@
 		gap: 10px;
 
 		border-radius: 16px;
-		border: 2px solid rgba(255, 255, 255, 0.16);
+		border: 2px solid var(--flair);
 		background: rgba(217, 217, 217, 0.08);
 		-webkit-backdrop-filter: blur(14px);
 		backdrop-filter: blur(14px);
