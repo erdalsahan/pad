@@ -32,6 +32,17 @@
 		/>
 	</div>
 </section>
+
+<section id="projects">
+	<h1>Projects</h1>
+	<p>
+		Discover and participate in our wide range of upcoming projects, private and public token sales.
+	</p>
+
+	<ProjectGallery />
+</section>
+
+
 <section id="features">
 	<h1>Features</h1>
 	<p>
