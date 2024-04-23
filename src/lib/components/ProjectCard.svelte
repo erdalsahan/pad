@@ -72,16 +72,15 @@
 
 <style lang="scss">
 	.card-project {
+		box-sizing: border-box;
 		display: inline-flex;
 		min-width: 320px;
-		padding: 16px;
+		padding: 1rem;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 10px;
+		gap: 1rem;
 
-		border-radius: 16px;
-		border: 2px solid var(--flair);
+		border-radius: 1rem;
+		border: 1px solid var(--flair);
 		background: rgba(217, 217, 217, 0.08);
 		-webkit-backdrop-filter: blur(14px);
 		backdrop-filter: blur(14px);
@@ -89,7 +88,7 @@
 
 		.banner {
 			aspect-ratio: 1.5;
-			border-radius: 8px;
+			border-radius: .5rem;
 			width: 100%;
 
 			position: relative;
@@ -102,7 +101,7 @@
 				padding: 4px 12px;
 				align-items: flex-start;
 
-				border-radius: 16px;
+				border-radius: 1rem;
 				background: rgba(217, 217, 217, 0.07);
 				box-shadow:
 					1.333px -1.333px 1.333px 0px rgba(182, 182, 182, 0.33) inset,
