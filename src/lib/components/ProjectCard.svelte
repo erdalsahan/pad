@@ -11,7 +11,7 @@
 	const flairToColorMap = {
 		'Private Sale': '#4B04F1',
 		'Token Sale': '#88F2E7',
-		'Presale': '#FF5B96',
+		Presale: '#FF5B96',
 		TBA: '#EAFF96'
 	};
 	$: flairColor = flairToColorMap[flair];
@@ -35,8 +35,9 @@
 </script>
 
 <div class="card-project" style="--flair: {flairColor};">
-	<span>{flair}</span>
-	<div class="banner" style="background-image: {bannerImageSource};"></div>
+	<div class="banner" style="background-image: {bannerImageSource};">
+		<span>{flair}</span>
+	</div>
 	<div class="title">
 		<h1>{name}</h1>
 		<img src={chainImageUrl} alt="Project main chain logo" />
@@ -90,6 +91,30 @@
 			aspect-ratio: 1.5;
 			border-radius: 8px;
 			width: 100%;
+
+			position: relative;
+			span {
+				position: absolute;
+				top: .5rem;
+				left: .5rem;
+
+				display: flex;
+				padding: 4px 12px;
+				align-items: flex-start;
+
+				border-radius: 16px;
+				background: rgba(217, 217, 217, 0.07);
+				box-shadow:
+					1.333px -1.333px 1.333px 0px rgba(182, 182, 182, 0.33) inset,
+					-1.333px 1.333px 1.333px 0px rgba(255, 255, 255, 0.33) inset;
+				-webkit-backdrop-filter: blur(18px);
+				backdrop-filter: blur(18px);
+
+				font:
+					1rem 'Ubuntu',
+					sans-serif;
+				text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+			}
 		}
 
 		.title {
