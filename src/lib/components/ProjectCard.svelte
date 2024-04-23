@@ -7,10 +7,11 @@
 
 	export let name = 'Project Name';
 
-	export let flair = 'TBA'; // Valid keys: [ private sale, token sale, tba ]
+	export let flair = 'TBA'; // Valid keys: [ private sale, token sale, presale, tba ]
 	const flairToColorMap = {
 		'Private Sale': '#4B04F1',
 		'Token Sale': '#88F2E7',
+		'Presale': '#FF5B96',
 		TBA: '#EAFF96'
 	};
 	$: flairColor = flairToColorMap[flair];
