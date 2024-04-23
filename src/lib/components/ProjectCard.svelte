@@ -3,15 +3,15 @@
      Yigid BALABAN <fyb@fybx.dev
 -->
 <script>
-	import randomGradient from '../randomGradient';
+	import randomGradient from '../utils/randomGradient';
 
 	export let name = 'Project Name';
-	
+
 	export let flair = 'TBA'; // Valid keys: [ private sale, token sale, tba ]
 	const flairToColorMap = {
 		'Private Sale': '#4B04F1',
 		'Token Sale': '#88F2E7',
-		'TBA': '#EAFF96'
+		TBA: '#EAFF96'
 	};
 	$: flairColor = flairToColorMap[flair];
 
@@ -83,7 +83,7 @@
 		background: rgba(217, 217, 217, 0.08);
 		-webkit-backdrop-filter: blur(14px);
 		backdrop-filter: blur(14px);
-		box-shadow: 0px 0px 16px 0px var(--flair); 
+		box-shadow: 0px 0px 16px 0px var(--flair);
 
 		.banner {
 			aspect-ratio: 1.5;
