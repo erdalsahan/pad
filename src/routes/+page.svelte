@@ -3,8 +3,12 @@
 	import TextButton from '../lib/components/TextButton.svelte';
 	import StatisticWidget from '../lib/components/StatisticWidget.svelte';
 	import InvisibleCard from '../lib/components/InvisibleCard.svelte';
+	import BlobImage from '../lib/modules/BlobImage.svelte';
 </script>
-<section id="hero">
+
+<BlobImage blobPositionAlgorithm="absolute" />
+
+<section id="hero" data-blob="bg/hero.svg" data-bpos-left="0">
 	<div class="content">
 		<h2>Meet the legend</h2>
 		<h1>Atlaspad Launchpad</h1>
@@ -69,7 +73,7 @@
 	</div>
 </section>
 
-<section id="get-listed">
+<section id="get-listed" data-blob="bg/getlisted.svg" data-bpos-left="0">
 	<h1>Get listed on Atlaspad</h1>
 	<p>
 		Ready to change the world? Ready for lift-off? Contact us now to get your project listed on
