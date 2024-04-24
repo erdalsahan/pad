@@ -7,9 +7,18 @@
 	import ImageButton from '../components/ImageButton.svelte';
 	import TextLink from '../components/TextLink.svelte';
 	import calculatePadding from '../utils/calculatePadding';
+
+	let header;
+	onMount(() => {
+		calculatePadding(header, 'marginInline');
+
+		window.onresize = () => {
+			calculatePadding(header, 'marginInline');
+		};
+	});
 </script>
 
-<header style="width: {width}px">
+<header bind:this={header}>
 	<img src="logomark.svg" alt="Atlaspad Launchpad logo" />
 
 	<nav>
