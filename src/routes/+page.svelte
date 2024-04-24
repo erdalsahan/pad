@@ -2,7 +2,9 @@
 	import ImageButton from '../lib/components/ImageButton.svelte';
 	import TextButton from '../lib/components/TextButton.svelte';
 	import StatisticWidget from '../lib/components/StatisticWidget.svelte';
+	import StakeCard from '../lib/components/StakeCard.svelte';
 	import InvisibleCard from '../lib/components/InvisibleCard.svelte';
+	import ProjectGallery from '../lib/components/ProjectGallery.svelte';
 	import BlobImage from '../lib/modules/BlobImage.svelte';
 </script>
 
@@ -112,6 +114,7 @@
 	</p>
 	<ImageButton imgSource="app.svg" text="I'm ready, let's do this!" />
 </section>
+
 <style lang="scss">
 	section {
 		min-height: 100vh;
@@ -186,7 +189,6 @@
 				display: none;
 			}
 		}
-	}
 	}
 
 	#features {
