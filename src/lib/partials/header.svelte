@@ -3,9 +3,10 @@
      Yigid BALABAN <fyb@fybx.dev
 -->
 <script>
-	import ImageButton from '../ImageButton.svelte';
-	import TextLink from '../TextLink.svelte';
-	export let width;
+	import { onMount } from 'svelte';
+	import ImageButton from '../components/ImageButton.svelte';
+	import TextLink from '../components/TextLink.svelte';
+	import calculatePadding from '../utils/calculatePadding';
 </script>
 
 <header style="width: {width}px">
