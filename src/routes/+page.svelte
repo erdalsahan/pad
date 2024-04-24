@@ -46,6 +46,32 @@
 	<ProjectGallery />
 </section>
 
+<section id="staking" data-blob="bg/staking.svg" data-bpos-right="0">
+	<h1>Staking Pools</h1>
+	<p>
+		Stake $ATLAS to earn rewards and get guaranteed allocation for the Launchpad. If you encounter
+		any difficulties, please feel free to contact us on our Discord server.
+	</p>
+
+	<StakeCard
+		name="30-Days Stake Pool"
+		details={[
+			{ key: 'ROI', value: '2.07%', color: '#88F28C' },
+			{ key: 'Total staked', value: '53,000,000 $ATLAS', monospaced: true },
+			{ key: 'Total reward', value: '1,097,100 $ATLAS', monospaced: true }
+		]}
+	/>
+
+	<StakeCard
+		name="30-Days Stake Pool"
+		details={[
+			{ key: 'ROI', value: '2.07%' },
+			{ key: 'Total staked', value: '53,000,000 $ATLAS', monospaced: true },
+			{ key: 'Total reward', value: '1,097,100 $ATLAS', monospaced: true }
+		]}
+		complete={true}
+	/>
+</section>
 
 <section id="features">
 	<h1>Features</h1>
