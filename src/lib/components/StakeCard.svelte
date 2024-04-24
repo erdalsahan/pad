@@ -1,6 +1,7 @@
-<!-- StakeCard component
-     2024 © Atlaspad Launchpad
-     Yigid BALABAN <fyb@fybx.dev
+<!-- 
+	StakeCard component
+    2024 © Atlaspad Launchpad
+    Yigid BALABAN <fyb@fybx.dev>
 -->
 <script>
 	export let name = 'Pool Name';
@@ -60,6 +61,12 @@
 		backdrop-filter: blur(14px);
 
 		.title {
+			display: inline-flex;
+			align-self: stretch;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 0.5rem;
+
 			img {
 				height: 1.5rem;
 				width: auto;
