@@ -8,8 +8,8 @@
 	import calculatePadding from '../utils/calculatePadding';
 
 	let footer;
-	calculatePadding(footer, 'paddingInline');
 	onMount(() => {
+		calculatePadding(footer, 'paddingInline');
 		window.onresize = calculatePadding(footer, 'paddingInline');
 	});
 </script>
