@@ -10,16 +10,19 @@
 	import calculatePadding from '../utils/calculatePadding';
 
 	let header;
+	let width;
 	onMount(() => {
-		calculatePadding(header, 'marginInline');
+		width = calculatePadding(header, 'marginInline');
 
 		window.onresize = () => {
-			calculatePadding(header, 'marginInline');
+			width = calculatePadding(header, 'marginInline');
 		};
 	});
+
+	$: width;
 </script>
 
-<header bind:this={header}>
+<header bind:this={header} style="width: {width}px">
 	<img src="logomark.svg" alt="Atlaspad Launchpad logo" />
 
 	<nav>
