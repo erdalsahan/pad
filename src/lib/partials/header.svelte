@@ -1,6 +1,7 @@
-<!-- header partial
-     2024 © Atlaspad Launchpad
-     Yigid BALABAN <fyb@fybx.dev
+<!-- 
+	header partial
+    2024 © Atlaspad Launchpad
+    Yigid BALABAN <fyb@fybx.dev>
 -->
 <script>
 	import { onMount } from 'svelte';
@@ -50,8 +51,8 @@
 		-webkit-backdrop-filter: blur(7px);
 		backdrop-filter: blur(7px);
 
-        nav {
-            display: inline-flex;
-        }
+		nav {
+			display: inline-flex;
+		}
 	}
 </style>
