@@ -147,6 +147,16 @@
 				float: right;
 			}
 		}
+
+		@media screen and (max-width: 1300px) {
+			// for device width <= 1300px
+			grid-template-columns: 1fr;
+			grid-template-areas: 'content';
+			.atlas {
+				display: none;
+			}
+		}
+	}
 	}
 
 	#features {
