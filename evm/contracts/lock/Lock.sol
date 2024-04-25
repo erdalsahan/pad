@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.19;
+pragma solidity ^0.8.19;
 
 import {CurrencyLibrary} from "../libraries/CurrencyLibrary.sol";
 import {LPLib} from "../libraries/LPLib.sol";
 import {Ownable2Step} from "@openzeppelin/contracts/access/Ownable2Step.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Lock is Ownable2Step {
     using CurrencyLibrary for address;
@@ -51,6 +52,8 @@ contract Lock is Ownable2Step {
         uint256 endTime,
         uint256 lockId
     );
+
+    constructor(address initialOwner) Ownable(initialOwner) {}
 
     /**
      * @notice This function locks a specified amount of tokens until a given end time.

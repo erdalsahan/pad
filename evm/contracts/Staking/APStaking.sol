@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity 0.8.4;
+pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
@@ -143,7 +143,7 @@ contract Staking is GlobalsAndUtility {
         /* Check if log data needs to be updated */
         _dailyDataUpdateAuto(g);
 
-        require(g._currentDay >= st._lockedDay + HARD_LOCK_DAYS, "STAKING: hard lock period");
+        // require(g._currentDay >= st._lockedDay + HARD_LOCK_DAYS, "STAKING: hard lock period");
 
         uint256 servedDays = 0;
         bool prevUnlocked = (st._unlockedDay != 0);
@@ -316,7 +316,7 @@ contract Staking is GlobalsAndUtility {
         StakeCache memory st;
         _stakeLoad(stakeListRef[stakeIndex], stakeIdParam, st);
 
-        require(g._currentDay >= st._lockedDay + HARD_LOCK_DAYS, "STAKING: hard lock period");
+        // require(g._currentDay >= st._lockedDay + HARD_LOCK_DAYS, "STAKING: hard lock period");
 
         uint256 servedDays = 0;
         bool prevUnlocked = (st._unlockedDay != 0);

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.19;
+pragma solidity ^0.8.19;
 import {CurrencyLibrary} from "../libraries/CurrencyLibrary.sol";
 import {Presale, Vesting, Contributor} from "../interfaces/IPresale.sol";
 import {IRouterV2} from "../interfaces/IRouterV2.sol";
