@@ -3,10 +3,10 @@ pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "./GlobalsAndUtility.sol";
+import "./APStakingUtility.sol";
 import "./helpers/IERC20Burnable.sol";
 
-contract Staking is GlobalsAndUtility {
+contract APStaking is APStakingUtility {
     using SafeERC20 for IERC20Burnable;
 
     constructor(

@@ -1,0 +1,5 @@
+# Launchpad Demo
+
+```sh
+npm run hardhat ignition deploy ./ignition/modules/AtlaspadDemo.ts -- --network localhost
+```

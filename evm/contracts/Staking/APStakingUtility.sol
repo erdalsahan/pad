@@ -3,7 +3,7 @@ pragma solidity ^0.8.4;
 
 import "./helpers/IERC20Burnable.sol";
 
-abstract contract GlobalsAndUtility {
+abstract contract APStakingUtility {
     event DailyDataUpdate(
         address indexed updaterAddr,
         uint40 timestamp,

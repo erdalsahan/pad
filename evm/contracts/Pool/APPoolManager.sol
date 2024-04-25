@@ -3,13 +3,13 @@ pragma solidity ^0.8.19;
 
 import {SignatureChecker} from "../utils/SignatureChecker.sol";
 import {Clones} from "@openzeppelin/contracts/proxy/Clones.sol";
-import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Presale, Vesting, IPool} from "../interfaces/IPool.sol";
 import {IUniswapV2Pair} from "../interfaces/IUniswapV2Pair.sol";
 import {CurrencyLibrary} from "../libraries/CurrencyLibrary.sol";
 
-contract PoolManager is SignatureChecker, ReentrancyGuard {
+contract APPoolManager is SignatureChecker, ReentrancyGuard {
     using CurrencyLibrary for address;
 
     address private _poolAddress;
