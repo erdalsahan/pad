@@ -1,0 +1,15 @@
+{
+  "name": "atlaspad-merkle-tree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "merkletreejs": "^0.3.11",
+    "o1js": "^1.0.1"
+  }
+}
