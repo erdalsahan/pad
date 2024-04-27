@@ -4,6 +4,26 @@
 	import calculatePadding from '../lib/utils/calculatePadding';
 	import Footer from '../lib/partials/footer.svelte';
 
+	/*
+	<script lang='ts'>
+	import { web3Modal } from 'svelte-wagmi
+	import { defaultConfig } from 'svelte-wagmi';
+	import { onMount } from 'svelte';
+	import { PUBLIC_WALLETCONNECT_ID, PUBLIC_ALCHEMY_ID } from '$env/static/public';';
+
+	$web3Modal.openModal();
+
+	    onMount(async () => {
+	    const erckit = defaultConfig({
+		appName: 'App Name',
+	    walletConnectProjectId: PUBLIC_WALLETCONNECT_KEY,
+		alchemyId: PUBLIC_ALCHEMY_KEY
+		});
+        await erckit.init();
+        });
+        <script> //bilerek yanlış yazdım
+	*/
+
 	let columns = 0;
 	let rows = 0;
 	let total = 1;
@@ -110,13 +130,13 @@
 
 		background: linear-gradient(
 			45deg,
-			#4B04F140,
-			#35ADA140,
-			#52FF0040,
-			#88F2E740,
+			#4b04f140,
+			#35ada140,
+			#52ff0040,
+			#88f2e740,
 			#79996040,
-			#EAFF9640,
-			#FF5B9640
+			#eaff9640,
+			#ff5b9640
 		);
 		background-size: 200% 200%;
 		animation: flowingGradient 8s ease infinite;
@@ -143,7 +163,7 @@
 				content: '';
 				position: absolute;
 				background-color: rgb(15, 15, 15);
-				inset: .5px;
+				inset: 0.5px;
 			}
 		}
 
