@@ -3,8 +3,11 @@
      Yigid BALABAN <fyb@fybx.dev
 -->
 <script>
-	import SocialButton from '../../../lib/components/SocialButton.svelte';
+	import { ethers } from 'ethers';
+	import SocialButton from '$lib/components/SocialButton.svelte';
 	import { marked } from 'marked';
+
+	import * as APPoolManagerArtifacts from '$lib/abi/APPoolManager.json';
 
 	// The `data` object is created from the JSON sent from the server
 	export let data;
@@ -25,6 +28,30 @@
 		vesting: 'Vesting',
 		total_sale: 'Total Sale'
 	};
+
+	import { modal } from '$lib/utils/wallet.js';
+	import { onDestroy } from 'svelte';
+
+	let web3modal;
+	const unsubscribe = modal.subscribe((value) => {
+		web3modal = value.modal;
+	});
+
+	onDestroy(() => {
+		unsubscribe();
+	});
+
+	import { BrowserProvider, Contract, formatUnits } from 'ethers';
+
+	const doPresale = async () => {
+		const signer = await new BrowserProvider(web3modal.getWalletProvider()).getSigner();
+
+		const presale = new Contract(
+			'0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9',
+			APPoolManagerArtifacts.abi,
+			signer
+		);
+	};
 </script>
 
 <section class="title">
@@ -32,6 +59,8 @@
 		<h2>Home/Projects</h2>
 		<h1>{data.name}</h1>
 	</div>
+
+	<button on:click={() => doPresale()}>Buy</button>
 
 	{#each data.flairs as flair}
 		<div class="flair">{flair}</div>
@@ -56,40 +85,45 @@
 	</section>
 	<article class="details">
 		{@html marked(data.description)}
-        
-        <!-- since Svelte styling is scoped and inserted differently
+
+		<!-- since Svelte styling is scoped and inserted differently
              we'll depend on this style element to style markdown-generated
              HTML. please do not refactor if you're not sure what you're doing.
              -- yigid balaban -->
-        <style>
-            h1, h2, h3, h4, h5, h6 {
-                text-style: bold;
-            }
+		<style>
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				text-style: bold;
+			}
 
-            h1 {
-                font-size: 2.25rem;
-            }
+			h1 {
+				font-size: 2.25rem;
+			}
 
-            h2 {
-                font-size: 2rem;
-            }
+			h2 {
+				font-size: 2rem;
+			}
 
-            h3 {
-                font-size: 1.75rem;
-            }
+			h3 {
+				font-size: 1.75rem;
+			}
 
-            h4 {
-                font-size: 1.5rem;
-            }
+			h4 {
+				font-size: 1.5rem;
+			}
 
-            h5 {
-                font-size: 1.25rem;
-            }
+			h5 {
+				font-size: 1.25rem;
+			}
 
-            h6 {
-                font-size: 1rem;
-            }
-        </style>
+			h6 {
+				font-size: 1rem;
+			}
+		</style>
 	</article>
 </section>
 
@@ -142,18 +176,18 @@
 	}
 
 	.content {
-        display: flex;
-        flex-wrap: nowrap;
+		display: flex;
+		flex-wrap: nowrap;
 
 		.left {
-            margin-right: 1.5rem;
-            min-width: min(40%, 320px);
+			margin-right: 1.5rem;
+			min-width: min(40%, 320px);
 
 			nav {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-                padding-bottom: 2rem;
+				padding-bottom: 2rem;
 			}
 
 			.parameters {
@@ -183,7 +217,7 @@
 			}
 		}
 
-        .details {
-        }
+		.details {
+		}
 	}
 </style>
