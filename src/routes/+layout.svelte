@@ -43,6 +43,10 @@
 		});
 
 		calculatePadding(main, 'paddingInline');
+
+		// for some reason (i really haven't looked for the root cause)
+		// navigating through pages doesn't reset the scroll position
+		window.scrollTo(0);
 	});
 </script>
 
