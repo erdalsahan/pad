@@ -5,37 +5,23 @@
 -->
 
 <script>
+	import { modal } from '$lib/utils/wallet.js';
+	import { onDestroy } from 'svelte';
+
+	let web3modal;
+
+	const unsubscribe = modal.subscribe((value) => {
+		web3modal = value.modal;
+	});
+
+	onDestroy(() => {
+		unsubscribe();
+	});
+
 	export let imgSource;
-
-	import { createWeb3Modal, defaultConfig } from '@web3modal/ethers';
-	const projectId = 'dd033d756ef855ad1e5d50b7fadfa280';
-	const mainnet = {
-		chainId: 1,
-		name: 'Ethereum',
-		currency: 'ETH',
-		explorerUrl: 'https://etherscan.io',
-		rpcUrl: 'https://cloudflare-eth.com'
-	};
-
-	const metadata = {
-		name: 'demolaunchpad',
-		description: 'anti launchpad action',
-		url: 'https://pad-balaban.vercel.app'
-	};
-
-	const ethersConfig = defaultConfig({
-		metadata
-	});
-
-	let modal = createWeb3Modal({
-		ethersConfig,
-		chains: [mainnet],
-		projectId,
-		enableAnalytics: false
-	});
 </script>
 
-<button on:click={() => modal.open()}>
+<button on:click={() => web3modal.open()}>
 	<img src={imgSource} alt="Button logo" /> Connect Wallet
 </button>
 
