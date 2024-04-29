@@ -3,7 +3,6 @@
      Yigid BALABAN <fyb@fybx.dev
 -->
 <script>
-	import { ethers } from 'ethers';
 	import SocialButton from '$lib/components/SocialButton.svelte';
 	import { marked } from 'marked';
 
@@ -41,7 +40,7 @@
 		unsubscribe();
 	});
 
-	import { BrowserProvider, Contract, formatUnits } from 'ethers';
+	import { BrowserProvider, Contract } from 'ethers';
 
 	const doPresale = async () => {
 		const signer = await new BrowserProvider(web3modal.getWalletProvider()).getSigner();
