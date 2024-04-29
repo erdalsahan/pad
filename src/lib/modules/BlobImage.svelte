@@ -7,7 +7,7 @@
 -->
 
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	export let blobPositionAlgorithm = 'absolute';
 	let blobContainerTuples = [];
@@ -76,8 +76,14 @@
 	}
 
 	onMount(() => {
+		console.log('Close the world, .txen eht nepO :: genesis by arbeit studio');
 		readDocument();
 		preprocessContainers();
-		console.log('Close the world, .txen eht nepO :: genesis by arbeit studio');
+	});
+
+	onDestroy(() => {
+		blobContainerTuples.forEach(tuple => {
+			tuple.img.remove();
+		})
 	});
 </script>
