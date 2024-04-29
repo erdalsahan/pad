@@ -23,15 +23,15 @@
 </script>
 
 <header bind:this={header} style="width: {width}px">
-	<img src="logomark.svg" alt="Atlaspad Launchpad logo" />
+	<img src="/logomark.svg" alt="Atlaspad Launchpad logo" />
 
 	<nav>
-		<TextLink text={'Chatbot'} imgSource={'chatbot.svg'} />
-		<TextLink text={'Documents'} imgSource={'docs.svg'} />
-		<TextLink text={'Staking'} imgSource={'staking.svg'} />
+		<TextLink text={'Chatbot'} imgSource={'/chatbot.svg'} />
+		<TextLink text={'Documents'} imgSource={'/docs.svg'} />
+		<TextLink text={'Staking'} imgSource={'/staking.svg'} />
 	</nav>
 
-	<ImageButton text={'Launch App'} imgSource={'app.svg'} />
+	<ImageButton text={'Launch App'} imgSource={'/app.svg'} />
 </header>
 
 <style lang="scss">

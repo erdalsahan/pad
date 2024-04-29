@@ -175,7 +175,7 @@
 			right: 0;
 			bottom: 0;
 
-			background-image: url('bg/reveal.png');
+			background-image: url('/bg/reveal.png');
 		}
 	}
 </style>

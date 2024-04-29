@@ -15,7 +15,7 @@
 </script>
 
 <footer bind:this={footer}>
-	<img src="logomark.svg" alt="Atlaspad Launchpad" />
+	<img src="/logomark.svg" alt="Atlaspad Launchpad" />
 	<nav>
 		<ul>
 			<li>Navigate</li>
@@ -54,7 +54,7 @@
 		background-position: center;
 		border-top: 1px solid #fff;
 		background-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.5) 100%),
-			url('bg/footer.svg');
+			url('/bg/footer.svg');
 
 		img {
 			width: auto;
