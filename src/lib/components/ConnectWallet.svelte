@@ -7,13 +7,8 @@
 <script>
 	export let imgSource;
 
-	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
-
 	import { createWeb3Modal, defaultConfig } from '@web3modal/ethers';
-
 	const projectId = 'dd033d756ef855ad1e5d50b7fadfa280';
-
 	const mainnet = {
 		chainId: 1,
 		name: 'Ethereum',
@@ -25,14 +20,14 @@
 	const metadata = {
 		name: 'demolaunchpad',
 		description: 'anti launchpad action',
-		url: 'https://pad-balaban.vercel.app',
+		url: 'https://pad-balaban.vercel.app'
 	};
 
 	const ethersConfig = defaultConfig({
 		metadata
 	});
 
-	const modal = createWeb3Modal({
+	let modal = createWeb3Modal({
 		ethersConfig,
 		chains: [mainnet],
 		projectId,
@@ -40,7 +35,7 @@
 	});
 </script>
 
-<button on:click={modal.open()}>
+<button on:click={() => modal.open()}>
 	<img src={imgSource} alt="Button logo" /> Connect Wallet
 </button>
 
