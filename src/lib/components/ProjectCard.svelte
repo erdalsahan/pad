@@ -6,6 +6,7 @@
 	import randomGradient from '../utils/randomGradient';
 
 	export let name = 'Project Name';
+	export let id;
 
 	export let flair = 'TBA'; // Valid keys: [ private sale, token sale, presale, tba ]
 	const flairToColorMap = {
@@ -67,7 +68,7 @@
 			</tr>
 		{/each}
 	</table>
-	<button>Details</button>
+	<a href="/projects/{id}">Details</a>
 </div>
 
 <style lang="scss">
@@ -145,7 +146,9 @@
 			}
 		}
 
-		button {
+		a {
+			text-decoration: none;
+			text-align: center;
 			padding: 8px 16px;
 			align-self: stretch;
 
