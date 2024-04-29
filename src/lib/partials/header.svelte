@@ -6,9 +6,9 @@
 <script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import ImageButton from '../components/ImageButton.svelte';
 	import TextLink from '../components/TextLink.svelte';
 	import calculatePadding from '../utils/calculatePadding';
+	import ConnectWallet from '../components/ConnectWallet.svelte';
 
 	let header;
 	let width;
@@ -35,7 +35,7 @@
 		<TextLink text={'Staking'} imgSource={'/staking.svg'} />
 	</nav>
 
-	<ImageButton text={'Launch App'} imgSource={'/app.svg'} />
+	<ConnectWallet imgSource={'/app.svg'} />
 </header>
 
 <style lang="scss">
