@@ -53,6 +53,7 @@
 		<div class="gallery">
 			{#each galleryData as item}
 				<ProjectCard
+					id={item.id}
 					name={item.name}
 					flair={item.flair}
 					details={item.details}
