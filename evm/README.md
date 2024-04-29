@@ -11,3 +11,17 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat ignition deploy ./ignition/modules/Lock.ts
 ```
+
+# yigid
+
+## bir tarafta agi ayaga kaldir
+
+```bash
+pnpm run hardhat node --network hardhat
+```
+
+## bir tarafta akilli kontratlari deploy et
+
+```bash
+pnpm run hardhat ignition deploy ./ignition/modules/AtlaspadDemo.ts --network localhost
+```
