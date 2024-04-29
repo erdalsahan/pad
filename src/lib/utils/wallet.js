@@ -1,9 +1,11 @@
+/* 	wallet utility
+ *	2024 © Atlaspad Launchpad
+ *  Yigid BALABAN <fyb@fybx.dev
+ */
+import { writable } from 'svelte/store';
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers';
 
-// 1. Get projectId at https://cloud.walletconnect.com
 const projectId = 'dd033d756ef855ad1e5d50b7fadfa280';
-
-// 2. Set chains
 const mainnet = {
 	chainId: 1,
 	name: 'Ethereum',
@@ -12,32 +14,25 @@ const mainnet = {
 	rpcUrl: 'https://cloudflare-eth.com'
 };
 
-// 3. Create your application's metadata object
 const metadata = {
-	name: 'My Website',
-	description: 'My Website description',
-	url: 'https://mywebsite.com', // url must match your domain & subdomain
-	icons: ['https://avatars.mywebsite.com/']
+	name: 'demolaunchpad',
+	description: 'anti launchpad action',
+	url: 'https://pad-balaban.vercel.app'
 };
 
-// 4. Create Ethers config
 const ethersConfig = defaultConfig({
-	/*Required*/
-	metadata,
-
-	/*Optional*/
-	enableEIP6963: true, // true by default
-	enableInjected: true, // true by default
-	enableCoinbase: true, // true by default
-	rpcUrl: '...', // used for the Coinbase SDK
-	defaultChainId: 1 // used for the Coinbase SDK
+	metadata
 });
 
-// 5. Create a Web3Modal instance
-const modal = createWeb3Modal({
+// Create the Web3Modal instance outside of writable
+const web3Modal = createWeb3Modal({
 	ethersConfig,
 	chains: [mainnet],
 	projectId,
-	enableAnalytics: true, // Optional - defaults to your Cloud configuration
-	enableOnramp: true // Optional - false as default
+	enableAnalytics: false
+});
+
+// Export the writable store
+export const modal = writable({
+	modal: web3Modal
 });
