@@ -5,6 +5,7 @@
 -->
 <script>
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import ImageButton from '../components/ImageButton.svelte';
 	import TextLink from '../components/TextLink.svelte';
 	import calculatePadding from '../utils/calculatePadding';
@@ -23,8 +24,11 @@
 </script>
 
 <header bind:this={header} style="width: {width}px">
-	<img src="/logomark.svg" alt="Atlaspad Launchpad logo" />
-
+	{#if $page.url.pathname === '/'}
+		<img src="/logomark.svg" alt="Atlaspad Launchpad logo" />
+	{:else}
+		<a href="/"><img src="/logomark.svg" alt="Atlaspad Launchpad logo" /></a>
+	{/if}
 	<nav>
 		<TextLink text={'Chatbot'} imgSource={'/chatbot.svg'} />
 		<TextLink text={'Documents'} imgSource={'/docs.svg'} />
