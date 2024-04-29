@@ -178,4 +178,12 @@
 			background-image: url('/bg/reveal.png');
 		}
 	}
+
+	main {
+		min-height: 100vh;
+		// don't hit the fixed header
+		// 8rem for base and 2 extra rems for header's top margin, which is also 2 rem
+		padding-block: calc(8rem + 2rem);
+		box-sizing: border-box; // so the height is correctly calculated
+	}
 </style>
