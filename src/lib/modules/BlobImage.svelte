@@ -81,6 +81,9 @@
 		preprocessContainers();
 	});
 
+	// since BlobImage adds <img> elements dynamically, Svelte can't
+	// and won't destroy them on navigation, so they'll persist between
+	// pages. we have to take care of them like this.
 	onDestroy(() => {
 		blobContainerTuples.forEach(tuple => {
 			tuple.img.remove();
