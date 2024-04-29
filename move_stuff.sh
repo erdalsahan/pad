@@ -9,9 +9,12 @@ chain_dir="$script_dir/evm/ignition/deployments/chain-$CHAIN"
 artifacts_dir="$chain_dir/artifacts"
 target_dir="$script_dir/src/lib/abi"
 
-cp -v "$artifacts_dir/AtlaspadDemoModule#APLock.json" "$target_dir/"
-cp -v "$artifacts_dir/AtlaspadDemoModule#APPool.json" "$target_dir/"
-cp -v "$artifacts_dir/AtlaspadDemoModule#APPoolManager.json" "$target_dir/"
-cp -v "$artifacts_dir/AtlaspadDemoModule#APToken.json" "$target_dir/"
+files="AtlaspadDemoModule#APLock.json AtlaspadDemoModule#APPool.json AtlaspadDemoModule#APPoolManager.json AtlaspadDemoModule#APToken.json"
+
+for file in $files; do
+    new_filename="${file#*#}"
+    cp -v "$artifacts_dir/$file" "$target_dir/$new_filename"
+done
+
 
 cp -v "$chain_dir/deployed_addresses.json" "$target_dir/"
