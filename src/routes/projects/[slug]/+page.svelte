@@ -19,7 +19,7 @@
 	// until I find a better way to do in SvelteKit
 	const paramTitleMap = {
 		sale_contract_address: 'Sale Contract Address',
-		sale_supply: 'Swap Amount',
+		sale_supply: 'Total supply',
 		sale_rate: 'Price per token',
 		softcap: 'Softcap',
 		hardcap: 'Hardcap',
