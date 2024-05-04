@@ -2,6 +2,6 @@
 
 ```sh
 npm run hardhat ignition deploy ./ignition/modules/AtlaspadDemo.ts -- --network localhost
+npm run hardhat compile
+./move_stuff.sh
 ```
-
-up to date "qomiq2 branch"
