@@ -20,6 +20,7 @@ contract APCampaignManager is Ownable {
         return campaignAddresses;
 	}
 
+	// TODO onlyOwner
 	function createCampaign(CampaignData memory newCampaignData) external {
 		require(
 			newCampaignData.saleStartTime >= block.timestamp,

@@ -11,6 +11,14 @@
 				{ "key": "Market Maker", "value": "DingleLabs", "muted": true }
 			],
 			"chain": "mina"
+		},
+		{
+			"contractAddress": "0xa16E02E87b7454126E5E10d957A927A7F5B5d2be",
+			"id": "demo2",
+			"name": "a16E",
+			"flair": "Presale",
+			"details": [],
+			"chain": "mina"
 		}
 	]
 }
