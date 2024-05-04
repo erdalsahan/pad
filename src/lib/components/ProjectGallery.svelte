@@ -8,15 +8,52 @@
 	import ProjectCard from './ProjectCard.svelte';
 	import ImageButton from './ImageButton.svelte';
 	import SearchBar from './SearchBar.svelte';
+	import { getCampaignData } from "../contracts/APCampaign";
 
 	let galleryData = [];
 	let loading = true;
 
+	// async function fetchData() {
+	// 	let contractAddresses, backendData;
+	// 	try {
+	// 		loading = true;
+			
+	// 		// Contract data
+	// 		contractAddresses = await getAllCampaignAddresses();
+			
+	// 		// Backend data
+	// 		const response = await fetch('/api/gallery.json');
+	// 		backendData = await response.json();
+	// 	} catch (error) {
+	// 		console.error('Error fetching data:', error);
+	// 	} finally {
+	// 		loading = false;
+	// 	}
+
+	// 	galleryData = contractAddresses.map(ca => ({
+	// 		contractAddress: ca,
+	// 		...backendData['data']
+	// 	}));
+	// }
 	async function fetchData() {
 		try {
 			loading = true;
 			const response = await fetch('/api/gallery.json');
 			const data = await response.json();
+
+			console.log("before", data['data'])
+
+			data['data'] = await Promise.all(data['data'].map(async data => {
+				if (!data.contractAddress) return data;
+				const campaignData = await getCampaignData(data.contractAddress);
+				data.details = [
+					{ "key": "Target", "value": `$ ${campaignData[2]}`, "monospaced": true },
+				]
+				return data
+			}));
+
+			console.log("after", data['data'])
+
 			galleryData = data['data'];
 		} catch (error) {
 			console.error('Error fetching data:', error);
