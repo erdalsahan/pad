@@ -1,4 +1,8 @@
 // SPDX-License-Identifier: MIT
+/*
+2024 © Atlaspad Launchpad
+Virjilakrum
+*/
 pragma solidity ^0.8.19;
 import {CurrencyLibrary} from "../libraries/CurrencyLibrary.sol";
 import {Presale, Vesting, Contributor} from "../interfaces/IPresale.sol";

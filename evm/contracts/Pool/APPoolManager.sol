@@ -1,4 +1,8 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
+/*
+2024 © Atlaspad Launchpad
+Virjilakrum
+*/
 pragma solidity ^0.8.19;
 
 import {SignatureChecker} from "../utils/SignatureChecker.sol";

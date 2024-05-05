@@ -1,4 +1,8 @@
 //SPDX-License-Identifier: MIT
+/*
+2024 © Atlaspad Launchpad
+Virjilakrum
+*/
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
