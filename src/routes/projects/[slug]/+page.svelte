@@ -1,11 +1,13 @@
 <!-- projects/[slug]/+page.svelte
      2024 © Atlaspad Launchpad
-     Yigid BALABAN <fyb@fybx.dev
+     Yigid BALABAN <fyb@fybx.dev>
 -->
 <script>
 	import SocialButton from '$lib/components/SocialButton.svelte';
 	import { marked } from 'marked';
 	import { ethers } from 'ethers';
+	import { wallet } from '$lib/utils/wallet.js';
+	import { onDestroy } from 'svelte';
 
 	import * as APCampaign from '$lib/abi/APCampaign.json';
 
@@ -31,9 +33,6 @@
 		total_sale: 'Total Sale'
 	};
 
-	import { wallet } from '$lib/utils/wallet.js';
-	import { onDestroy } from 'svelte';
-
 	let modal;
 	const unsubscribe = wallet.subscribe((value) => {
 		modal = value.modal;
@@ -53,7 +52,7 @@
 
 		async function invest(amount) {
 			try {
-				const tx = await contract.invest(amount);
+				const tx = await contract.invest(amount, { value: amount });
 				await tx.wait();
 				return true;
 			} catch (error) {
@@ -62,8 +61,7 @@
 			}
 		}
 
-		const amountToInvest = ethers.parseEther('5');
-		await invest(amountToInvest);
+		await invest(1);
 	};
 </script>
 
