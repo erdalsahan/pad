@@ -1,7 +1,7 @@
 # atlaspad/pad
 
 ## localnet/gelistirici ortami
-
+ 
 ### 1. bir pencerede localhost agi ayaga kaldir
 
 ```bash
