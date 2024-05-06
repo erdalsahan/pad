@@ -1,7 +1,7 @@
 {
 	"data": [
 		{
-			"id": "demo",
+			"id": "etherlink",
 			"name": "EtherLink",
 			"flair": "Presale",
 			"details": [
@@ -10,15 +10,48 @@
 				{ "key": "Type", "value": "Bazinga" },
 				{ "key": "Market Maker", "value": "DingleLabs", "muted": true }
 			],
-			"chain": "mina"
+			"chain": "mina",
+			"description": "# Introduction\nEtherLink is a decentralized platform that aims to revolutionize the way data is stored and accessed on the blockchain. Leveraging the power of decentralized storage solutions, EtherLink provides a secure, efficient, and censorship-resistant platform for storing and retrieving data. Whether it's documents, images, or any other type of digital content, EtherLink ensures data integrity and accessibility through its innovative technology.",
+			"parameters": {
+				"sale_contract_address": "0x123abc...",
+				"sale_supply": "100,000,000 ETHL",
+				"sale_rate": "1 ETHL per 0.0001 ETH",
+				"softcap": "5,000",
+				"hardcap": "20,000",
+				"liquidity": "7 days, 20% of total liquidity",
+				"vesting": "180 days, 10% every 30 days",
+				"total_sale": "6,000"
+			},
+			"flairs": ["Presale"],
+			"socials": {
+				"discord": "https://discord.com",
+				"github": "https://github.com",
+				"twitter": "https://twitter.com"
+			}
 		},
 		{
 			"contractAddress": "0xa16E02E87b7454126E5E10d957A927A7F5B5d2be",
-			"id": "demo2",
-			"name": "a16E",
+			"id": "demo",
+			"name": "Demo Project",
 			"flair": "Presale",
 			"details": [],
-			"chain": "mina"
+			"chain": "mina",
+			"description": "# Introduction\nThis project is created to showcase Atlaspad Launchpad's MVP milestones.",
+			"parameters": {
+				"sale_supply": "100,000,000 ETHL",
+				"sale_rate": "1 ETHL per 0.0001 ETH",
+				"softcap": "5,000",
+				"hardcap": "100,000",
+				"liquidity": "7 days, 20% of total liquidity",
+				"vesting": "180 days, 10% every 30 days",
+				"total_sale": "make it onchain"
+			},
+			"flairs": ["Presale"],
+			"socials": {
+				"discord": "https://discord.com",
+				"github": "https://github.com",
+				"twitter": "https://twitter.com"
+			}
 		}
 	]
 }
