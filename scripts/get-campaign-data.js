@@ -1,5 +1,7 @@
 import { Contract, JsonRpcProvider } from 'ethers';
 import apCampaignArtifacts from '../src/lib/abi/APCampaign.json' assert { type: 'json' };
+import aptokenart from '../src/lib/abi/APToken.json' assert { type: 'json' };
+import addresses from '../src/lib/abi/deployed_addresses.json' assert { type: 'json' };
 
 const rpcUrl = 'http://127.0.0.1:8545';
 
@@ -9,6 +11,16 @@ async function main() {
 	const provider = new JsonRpcProvider(rpcUrl);
 
 	const apCampaign = new Contract(campaignAddress, apCampaignArtifacts.abi, provider);
+	const apCampSign = new Contract(
+		campaignAddress,
+		apCampaignArtifacts.abi,
+		await provider.getSigner()
+	);
+	const aptoken = new Contract(
+		addresses['AtlaspadDemoModule#APToken'],
+		aptokenart.abi,
+		await provider.getSigner()
+	);
 
 	try {
 		console.log('hey', campaignAddress);
@@ -17,6 +29,15 @@ async function main() {
 	} catch (error) {
 		console.error('ERROR:', error);
 	}
+
+	console.log(await aptoken.totalSupply());
+	console.log(await aptoken.getBalance());
+	await aptoken.transferTokens(campaignAddress, 3000);
+	console.log(await aptoken.totalSupply());
+	console.log(await aptoken.getBalance());
+
+	await aptoken.approveSender(campaignAddress, BigInt(1000000000000000000));
+	await apCampSign.invest(1, { value: 1 });
 }
 
 main();

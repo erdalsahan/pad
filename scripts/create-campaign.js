@@ -5,7 +5,7 @@ import deployedAddresses from '../src/lib/abi/deployed_addresses.json' assert { 
 const rpcUrl = 'http://127.0.0.1:8545';
 
 const campaignData = {
-	investToken: deployedAddresses['AtlaspadDemoModule#APToken'],
+	tokenAddress: deployedAddresses['AtlaspadDemoModule#APToken'],
 	presaleRate: 1,
 	targetSaleAmount: 100000,
 	minBuy: 1,
