@@ -5,7 +5,7 @@ Virjilakrum
 Compatible with OpenZeppelin Contracts ^5.0.0
 */
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
@@ -19,7 +19,19 @@ contract APToken is ERC20, ERC20Burnable, Ownable {
     constructor(
         address initialOwner
     ) ERC20("APToken", "AP") Ownable(initialOwner) {
-        _mint(msg.sender, _numTokens * (10 ** decimals()));
+        _mint(address(this), _numTokens * (10 ** decimals()));
+    }
+
+    function getBalance() external view returns(uint256) {
+        return balanceOf(address(this));
+    }
+
+    function transferTokens(address recipient, uint256 amount) public returns (bool) {
+        require(recipient != address(0), "ERC20: transfer to the zero address");
+        //require(amount <= balanceOf(msg.sender), "ERC20: transfer amount exceeds balance");
+        
+        _transfer(address(this), recipient, amount * (10 ** decimals()));
+        return true;
     }
 
     // function changeName(string memory name) public onlyOwner{
