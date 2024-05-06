@@ -3,6 +3,7 @@
  *  Yigid BALABAN <fyb@fybx.dev
  */
 import { writable } from 'svelte/store';
+import { BrowserProvider } from 'ethers';
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers';
 
 const projectId = 'dd033d756ef855ad1e5d50b7fadfa280';
@@ -18,7 +19,7 @@ const localhost = {
 	chainId: 31337,
 	name: 'Localhost',
 	currency: 'ETH',
-	rpcUrl: 'http://localhost:8545'
+	rpcUrl: 'http://127.0.0.1:8545'
 };
 
 const metadata = {
@@ -34,12 +35,12 @@ const ethersConfig = defaultConfig({
 // Create the Web3Modal instance outside of writable
 const web3Modal = createWeb3Modal({
 	ethersConfig,
-	chains: [mainnet, localhost],
+	chains: [localhost],
 	projectId,
 	enableAnalytics: false
 });
 
 // Export the writable store
-export const modal = writable({
+export const wallet = writable({
 	modal: web3Modal
 });
