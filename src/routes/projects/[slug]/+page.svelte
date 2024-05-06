@@ -5,8 +5,9 @@
 <script>
 	import SocialButton from '$lib/components/SocialButton.svelte';
 	import { marked } from 'marked';
+	import { ethers } from 'ethers';
 
-	import * as APPoolManagerArtifacts from '$lib/abi/APPoolManager.json';
+	import * as APCampaign from '$lib/abi/APCampaign.json';
 
 	// The `data` object is created from the JSON sent from the server
 	export let data;
@@ -18,7 +19,9 @@
 	// this is how we will map between server fields to real human title names
 	// until I find a better way to do in SvelteKit
 	const paramTitleMap = {
-		sale_contract_address: 'Sale Contract Address',
+		contractAddress: 'Sale Contract Address',
+		startTime: 'Start time',
+		endTime: 'End time',
 		sale_supply: 'Total supply',
 		sale_rate: 'Price per token',
 		softcap: 'Softcap',
@@ -28,28 +31,50 @@
 		total_sale: 'Total Sale'
 	};
 
-	import { modal } from '$lib/utils/wallet.js';
+	import { wallet } from '$lib/utils/wallet.js';
 	import { onDestroy } from 'svelte';
 
-	let web3modal;
-	const unsubscribe = modal.subscribe((value) => {
-		web3modal = value.modal;
+	let modal;
+	const unsubscribe = wallet.subscribe((value) => {
+		modal = value.modal;
 	});
 
 	onDestroy(() => {
 		unsubscribe();
 	});
 
-	import { BrowserProvider, Contract } from 'ethers';
-
 	const doPresale = async () => {
-		const signer = await new BrowserProvider(web3modal.getWalletProvider()).getSigner();
-
-		const presale = new Contract(
-			'0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9',
-			APPoolManagerArtifacts.abi,
-			signer
+		const provider = new ethers.BrowserProvider(modal.getWalletProvider());
+		const contract = new ethers.Contract(
+			data.parameters.contractAddress,
+			APCampaign.abi,
+			await provider.getSigner()
 		);
+
+		async function approve(tokenAddress, amount) {
+			try {
+				const tx = await contract.approve(tokenAddress, amount);
+				await tx.wait();
+				return true;
+			} catch (error) {
+				console.error('approve error:', error);
+				return false;
+			}
+		}
+
+		async function invest(amount) {
+			try {
+				const tx = await contract.invest(amount);
+				await tx.wait();
+				return true;
+			} catch (error) {
+				console.error('invest error:', error);
+				return false;
+			}
+		}
+
+		const amountToInvest = ethers.parseEther('5');
+		await invest(amountToInvest);
 	};
 </script>
 
