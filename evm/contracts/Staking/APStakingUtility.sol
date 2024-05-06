@@ -7,6 +7,43 @@ pragma solidity ^0.8.4;
 
 import "./helpers/IERC20Burnable.sol";
 
+
+/*
+    Stake Start: Users can deposit tokens (specifically, the stakingToken) to start a stake. The contract calculates bonus shares based on the stake duration and amount.
+    Stake Length: Stakers can choose a stake duration between a minimum and maximum number of days.
+    Rewards Calculation: Rewards are distributed daily based on the total staked amount and the share rate. The share rate is calculated dynamically considering the total staked tokens and the rewards pool.
+    Early Unlocking and Penalties: Users can unlock their stake before the chosen duration, but they may incur a penalty depending on the remaining stake period.
+    Daily Data Updates: The contract automatically updates daily payout data based on stake activity.
+
+Key Elements:
+
+    Stake: Represents a user's staked tokens, including the amount, stake shares, locked and unlocked days, and stake ID.
+    Globals: Stores global variables like the total locked stake amount, total stake shares, current day number, and daily data count.
+    Daily Data: Tracks daily payouts, shares removed due to stake endings, and accumulated reward per share.
+    Functions:
+        dailyDataUpdate: Updates daily data for a specified day range to calculate rewards.
+        dailyDataRange: Retrieves daily payout and reward data for a day range in a single call.
+        globalInfo: Returns current global variables in a single call.
+        currentDay: Gets the current day number since the contract's launch.
+        Stake-related functions (_stakeStart, _stakeEnd, etc.): Manage user stake creation, ending, and calculations.
+
+Security Considerations:
+
+    Carefully review the provided code to understand the logic and potential vulnerabilities.
+    Involve a professional solidity developer for a thorough security audit before deployment.
+
+Additional Notes:
+
+    The code uses specific constants for minimum/maximum stake days, penalty calculations, reward multipliers, and share rate scaling.
+    Comments are included within the code to explain specific sections.
+
+Recommendations:
+
+    Study the Solidity documentation and best practices for secure smart contract development.
+    Unit test the contract functionality to ensure it behaves as expected under various scenarios.
+    Deploy to a testnet environment first to identify any issues before deploying to a mainnet.
+
+*/
 abstract contract APStakingUtility {
     event DailyDataUpdate(
         address indexed updaterAddr,
