@@ -5,13 +5,13 @@
 -->
 
 <script>
-	import { modal } from '$lib/utils/wallet.js';
+	import { wallet } from '$lib/utils/wallet.js';
 	import { onDestroy } from 'svelte';
 
-	let web3modal;
+	let modal;
 
-	const unsubscribe = modal.subscribe((value) => {
-		web3modal = value.modal;
+	const unsubscribe = wallet.subscribe((value) => {
+		modal = value.modal;
 	});
 
 	onDestroy(() => {
@@ -21,7 +21,7 @@
 	export let imgSource;
 </script>
 
-<button on:click={() => web3modal.open()}>
+<button on:click={() => modal.open()}>
 	<img src={imgSource} alt="Button logo" /> Connect Wallet
 </button>
 
