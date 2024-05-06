@@ -22,7 +22,7 @@ contract APCampaign is Ownable {
 	}
 
 	function invest(uint amount) external {
-		IERC20 investToken = IERC20(_data.investToken);
+		IERC20 investToken = IERC20(_data.tokenAddress);
 		investToken.transferFrom(msg.sender, address(this), amount);
 
 		Investment storage investment = _investments[msg.sender];
