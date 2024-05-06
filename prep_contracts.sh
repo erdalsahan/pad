@@ -13,6 +13,11 @@ mkdir -p $target_dir
 
 files="AtlaspadDemoModule#APLock.json AtlaspadDemoModule#APPool.json AtlaspadDemoModule#APPoolManager.json AtlaspadDemoModule#APToken.json AtlaspadDemoModule#APCampaignManager.json"
 
+cd "$script_dir/evm"
+pnpm run hardhat ignition deploy $script_dir/evm/ignition/modules/AtlaspadDemo.ts --network localhost
+
+cd "$script_dir"
+
 for file in $files; do
     new_filename="${file#*#}"
     cp -v "$artifacts_dir/$file" "$target_dir/$new_filename"
