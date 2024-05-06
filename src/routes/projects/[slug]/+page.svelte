@@ -51,17 +51,6 @@
 			await provider.getSigner()
 		);
 
-		async function approve(tokenAddress, amount) {
-			try {
-				const tx = await contract.approve(tokenAddress, amount);
-				await tx.wait();
-				return true;
-			} catch (error) {
-				console.error('approve error:', error);
-				return false;
-			}
-		}
-
 		async function invest(amount) {
 			try {
 				const tx = await contract.invest(amount);
